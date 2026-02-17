@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Herramientas - Calculadora y Conversor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✨ Mis Herramientas ✨</h1>
+            <p class="subtitle">Selecciona el programa que deseas utilizar</p>
+        </header>
+
+        <main>
+            <div class="programs-grid">
+                <!-- Tarjeta de Calculadora -->
+                <div class="program-card" onclick="window.location.href='calculadora.html'">
+                    <div class="icon">🧮</div>
+                    <h2>Calculadora</h2>
+                    <p>Realiza operaciones matemáticas básicas y avanzadas de manera rápida y sencilla.</p>
+                    <a href="PROMEWDIO/public/index.html" class="btn">Ir a Calculadora</a>
+                </div>
+
+                <!-- Tarjeta de Conversor de Monedas -->
+                <div class="program-card" onclick="window.location.href='conversor-monedas.html'">
+                    <div class="icon">💱</div>
+                    <h2>Conversor de Monedas</h2>
+                    <p>Convierte entre diferentes monedas con tasas de cambio actualizadas.</p>
+                    <a href="PROWPESOS/public/index.html" class="btn">Ir al Conversor</a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2024 - Todas las herramientas en un solo lugar</p>
+        </footer>
+    </div>
+
+    <!-- Script opcional para manejar errores de navegación -->
+    <script>
+        // Verificar que los archivos existen antes de navegar
+        document.querySelectorAll('.program-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Si el clic fue en el botón, no hacer nada (el enlace ya maneja la navegación)
+                if (e.target.tagName === 'A') return;
+                
+                const link = this.querySelector('a').getAttribute('href');
+                window.location.href = link;
+            });
+        });
+
+        // Manejar errores 404
+        window.addEventListener('error', function(e) {
+            if (e.target.tagName === 'LINK' || e.target.tagName === 'SCRIPT') {
+                console.log('Error cargando recurso:', e.target.href);
+            }
+        }, true);
+    </script>
+</body>
+</html>

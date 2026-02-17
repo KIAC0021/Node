@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Promedio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator-card">
+            <div class="header">
+                <h1>📊 Calculadora de Promedio</h1>
+                <p>Ingresa las calificaciones de las 3 unidades</p>
+            </div>
+            
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <label for="unit1">Unidad 1</label>
+                    <input type="number" id="unit1" min="0" max="10" step="0.1" placeholder="0-10">
+                </div>
+                
+                <div class="input-wrapper">
+                    <label for="unit2">Unidad 2</label>
+                    <input type="number" id="unit2" min="0" max="10" step="0.1" placeholder="0-10">
+                </div>
+                
+                <div class="input-wrapper">
+                    <label for="unit3">Unidad 3</label>
+                    <input type="number" id="unit3" min="0" max="10" step="0.1" placeholder="0-10">
+                </div>
+            </div>
+            
+            <button class="calculate-btn" onclick="calculateAverage()">
+                <span>Calcular Promedio</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            
+            <div class="result-card" id="resultCard">
+                <div class="result-header">
+                    <h3>Resultado</h3>
+                </div>
+                <div class="result-content">
+                    <div class="average-display">
+                        <span class="average-label">Promedio:</span>
+                        <span class="average-value" id="averageValue">-</span>
+                    </div>
+                    <div class="status-display" id="statusDisplay">
+                        <span class="status-badge" id="statusBadge">Esperando datos</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-note">
+                <p>🔍 Nota: El promedio se calcula con 3 unidades. Mínimo 7 para aprobar.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

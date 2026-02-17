@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor Pesos a Dólares</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="converter-card">
+            <div class="header">
+                <div class="icon-wrapper">
+                    <i class="fas fa-exchange-alt"></i>
+                </div>
+                <h1>Conversor de Moneda</h1>
+                <p>Pesos Mexicanos (MXN) a Dólares Americanos (USD)</p>
+            </div>
+
+            <div class="tipo-cambio-card">
+                <div class="cambio-info">
+                    <span class="label">Tipo de cambio actual</span>
+                    <div class="cambio-valor" id="tipoCambioDisplay">
+                        <span class="moneda">1 USD =</span>
+                        <span class="valor" id="tipoCambioValor">20.50</span>
+                        <span class="moneda">MXN</span>
+                    </div>
+                </div>
+                <button class="edit-btn" onclick="editarTipoCambio()">
+                    <i class="fas fa-pencil-alt"></i>
+                </button>
+            </div>
+
+            <div class="converter-body">
+                <div class="input-group">
+                    <label for="pesos">
+                        <i class="fas fa-weight-hanging"></i>
+                        Cantidad en Pesos (MXN)
+                    </label>
+                    <div class="input-wrapper">
+                        <span class="currency-symbol">$</span>
+                        <input type="number" id="pesos" min="0" step="0.01" placeholder="0.00" value="1000">
+                    </div>
+                </div>
+
+                <div class="swap-icon">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+
+                <div class="input-group">
+                    <label for="dolares">
+                        <i class="fas fa-dollar-sign"></i>
+                        Cantidad en Dólares (USD)
+                    </label>
+                    <div class="input-wrapper">
+                        <span class="currency-symbol">$</span>
+                        <input type="number" id="dolares" min="0" step="0.01" placeholder="0.00" readonly>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="convert-btn" onclick="convertirPesosADolares()">
+                        <i class="fas fa-sync-alt"></i>
+                        Convertir a Dólares
+                    </button>
+                    <button class="swap-btn" onclick="intercambiarMonedas()">
+                        <i class="fas fa-arrows-alt-h"></i>
+                        Invertir conversión
+                    </button>
+                </div>
+            </div>
+
+            <div class="result-card" id="resultCard">
+                <div class="result-header">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Resultado de la conversión</h3>
+                </div>
+                <div class="result-content">
+                    <div class="conversion-detail">
+                        <span class="label">Pesos:</span>
+                        <span class="value" id="pesosDisplay">$1,000.00 MXN</span>
+                    </div>
+                    <div class="conversion-arrow">
+                        <i class="fas fa-long-arrow-alt-right"></i>
+                    </div>
+                    <div class="conversion-detail">
+                        <span class="label">Dólares:</span>
+                        <span class="value highlight" id="dolaresDisplay">$48.78 USD</span>
+                    </div>
+                </div>
+                <div class="conversion-date">
+                    <i class="far fa-calendar-alt"></i>
+                    <span id="fechaActual"></span>
+                </div>
+            </div>
+
+            <div class="info-note">
+                <i class="fas fa-info-circle"></i>
+                <p>El tipo de cambio es actualizable. Haz clic en el lápiz para editarlo.</p>
+            </div>
+
+            <div class="quick-conversions">
+                <h4>Conversiones rápidas</h4>
+                <div class="quick-buttons">
+                    <button onclick="quickConvert(100)">$100</button>
+                    <button onclick="quickConvert(500)">$500</button>
+                    <button onclick="quickConvert(1000)">$1,000</button>
+                    <button onclick="quickConvert(5000)">$5,000</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
